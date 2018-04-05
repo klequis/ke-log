@@ -57,11 +57,10 @@ const getStyle = (styleName) => {
 
 export const log = (message = '', value = '', color = '') => {
   const nMessage = arguments.length === 3 ? `%c[${message}]` : `%c[${message}]`
-  let nValue
   const style = getStyle(color);
 
   // eslint-disable-next-line no-console
-  console.log(nMessage, style, nValue);
+  console.log(nMessage, style, value);
 }
 
 export default { log }
