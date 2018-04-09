@@ -56,7 +56,17 @@ const getStyle = (styleName) => {
 }
 
 export const log = (message = '', value = '', color = '') => {
-  const nMessage = arguments.length === 3 ? `%c[${message}]` : `%c[${message}]`
+  let count = 3
+  if (color === '') { count-- }
+  if (value === '') { count-- }
+
+  let nMessage
+  if (count === 1) {
+    nMessage = '[log]'
+    value = message
+  } else {
+    nMessage = `%c[${message}]`
+  }
   const style = getStyle(color);
 
   // eslint-disable-next-line no-console
